@@ -1,0 +1,601 @@
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Quicksand:wght@300;400;500;600&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    background: linear-gradient(-45deg, #ffe6e6, #e6e6ff, #ffebf5, #fff0f5);
+    background-size: 400% 400%;
+    animation: gradientBG 15s ease infinite;
+    font-family: 'Quicksand', sans-serif;
+    overflow-x: hidden;
+    transition: opacity 1s ease;
+}
+
+@keyframes gradientBG {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* Custom Heart Cursor */
+.custom-cursor {
+    position: fixed;
+    pointer-events: none;
+    z-index: 9999;
+    transition: transform 0.15s ease;
+    transform: translate(-50%, -50%);
+}
+
+.custom-cursor svg {
+    width: 100%;
+    height: 100%;
+    filter: drop-shadow(0 2px 4px rgba(255, 105, 180, 0.3));
+}
+
+body {
+    cursor: none;
+}
+
+a, button {
+    cursor: none;
+}
+
+/* Floating Hearts */
+.floating-hearts {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1;
+    overflow: hidden;
+}
+
+.floating-hearts::before,
+.floating-hearts::after {
+    content: '💖';
+    position: absolute;
+    font-size: 2rem;
+    animation: floatUp 10s infinite;
+    opacity: 0.6;
+}
+
+.floating-hearts::before {
+    left: 20%;
+    animation-delay: 0s;
+}
+
+.floating-hearts::after {
+    left: 80%;
+    animation-delay: 5s;
+}
+
+@keyframes floatUp {
+    0% {
+        transform: translateY(100vh) rotate(0deg);
+        opacity: 0;
+    }
+    10% {
+        opacity: 0.6;
+    }
+    90% {
+        opacity: 0.6;
+    }
+    100% {
+        transform: translateY(-100vh) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+/* Main Landing Page Styles */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    position: relative;
+    z-index: 2;
+}
+
+.main-title {
+    font-family: 'Dancing Script', cursive;
+    font-size: 4rem;
+    color: #ff69b4;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+    margin-bottom: 2rem;
+    animation: bounceIn 1s ease;
+}
+
+@keyframes bounceIn {
+    0% {
+        opacity: 0;
+        transform: scale(0.3);
+    }
+    50% {
+        transform: scale(1.05);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.greeting-text {
+    margin: 2rem 0;
+    max-width: 600px;
+}
+
+.greeting-line {
+    font-size: 1.3rem;
+    color: #666;
+    margin: 1rem 0;
+    opacity: 0;
+    animation: fadeInUp 0.8s ease forwards;
+}
+
+.greeting-line:nth-child(1) { animation-delay: 0.5s; }
+.greeting-line:nth-child(2) { animation-delay: 1s; }
+.greeting-line:nth-child(3) { animation-delay: 1.5s; }
+.greeting-line:nth-child(4) { animation-delay: 2s; }
+.greeting-line:nth-child(5) { animation-delay: 2.5s; }
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Greeting Cards */
+.greeting-card {
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 25px;
+    padding: 2.5rem;
+    margin: 2rem auto;
+    max-width: 600px;
+    box-shadow: 0 15px 40px rgba(255, 105, 180, 0.2);
+    transition: all 0.5s ease;
+}
+
+.greeting-card.hidden {
+    display: none;
+}
+
+.greeting-card.fade-in {
+    animation: fadeInScale 0.6s ease;
+}
+
+@keyframes fadeInScale {
+    from {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.card-content {
+    text-align: center;
+}
+
+.card-title {
+    font-family: 'Dancing Script', cursive;
+    font-size: 2.5rem;
+    color: #ff69b4;
+    margin-bottom: 1.5rem;
+}
+
+.card-gif {
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 50%;
+    margin: 1.5rem auto;
+    display: block;
+    box-shadow: 0 10px 30px rgba(255, 105, 180, 0.3);
+}
+
+.card-text {
+    font-size: 1.3rem;
+    color: #666;
+    line-height: 1.8;
+    margin-top: 1.5rem;
+}
+
+/* Next Button */
+.next-button {
+    padding: 1rem 2.5rem;
+    font-size: 1.2rem;
+    background: linear-gradient(45deg, #9b59b6, #8e44ad);
+    border: none;
+    border-radius: 50px;
+    color: white;
+    cursor: none;
+    box-shadow: 0 5px 20px rgba(155, 89, 182, 0.4);
+    transition: all 0.3s ease;
+    font-family: 'Quicksand', sans-serif;
+    font-weight: 600;
+    margin-top: 2rem;
+}
+
+.next-button:hover {
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: 0 8px 30px rgba(155, 89, 182, 0.6);
+}
+
+.next-button.hidden {
+    display: none;
+}
+
+.btn-text {
+    font-weight: 600;
+}
+
+.cta-button {
+    padding: 1.2rem 2.5rem;
+    font-size: 1.3rem;
+    background: linear-gradient(45deg, #ff69b4, #ff1493);
+    border: none;
+    border-radius: 50px;
+    color: white;
+    cursor: none;
+    box-shadow: 0 5px 20px rgba(255, 105, 180, 0.4);
+    transition: all 0.3s ease;
+    font-family: 'Quicksand', sans-serif;
+    font-weight: 600;
+    margin-top: 2rem;
+}
+
+.cta-button.hidden {
+    display: none;
+}
+
+.cta-button.fade-in-scale {
+    animation: fadeInScalePulse 1s ease;
+}
+
+@keyframes fadeInScalePulse {
+    0% {
+        opacity: 0;
+        transform: scale(0.5);
+    }
+    70% {
+        transform: scale(1.1);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* Memories Page Styles */
+.memories-page {
+    padding: 2rem 0;
+}
+
+.magic-sparkles {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1;
+    background-image: radial-gradient(circle, white 1px, transparent 1px);
+    background-size: 50px 50px;
+    animation: sparkleMove 20s linear infinite;
+    opacity: 0.3;
+}
+
+@keyframes sparkleMove {
+    0% { transform: translateY(0); }
+    100% { transform: translateY(-50px); }
+}
+
+.welcome-section {
+    text-align: center;
+    padding: 3rem 2rem;
+    position: relative;
+    z-index: 2;
+}
+
+.page-title {
+    font-family: 'Dancing Script', cursive;
+    font-size: 3.5rem;
+    color: #ff69b4;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+    margin-bottom: 1rem;
+    animation: fadeIn 1s ease;
+}
+
+.subtitle {
+    font-size: 1.2rem;
+    color: #666;
+    animation: fadeIn 1.5s ease;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+/* Memory Cards */
+.memory-card {
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 20px;
+    padding: 2rem;
+    margin: 2rem auto;
+    max-width: 800px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    transition: all 0.5s ease;
+    position: relative;
+    overflow: hidden;
+    z-index: 2;
+}
+
+.memory-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 40px rgba(255, 105, 180, 0.3);
+}
+
+.memory-card.full-width {
+    max-width: 900px;
+}
+
+.memory-card.special-card {
+    border: 3px solid #ff69b4;
+    box-shadow: 0 15px 40px rgba(255, 105, 180, 0.4);
+}
+
+.memory-img {
+    width: 100%;
+    max-height: 500px;
+    object-fit: cover;
+    border-radius: 15px;
+    margin-bottom: 1.5rem;
+    transition: transform 0.5s ease;
+}
+
+.memory-card:hover .memory-img {
+    transform: scale(1.03);
+}
+
+.memory-content {
+    text-align: left;
+}
+
+.memory-title {
+    font-family: 'Dancing Script', cursive;
+    font-size: 2rem;
+    color: #ff69b4;
+    margin-bottom: 1rem;
+}
+
+.memory-subtitle {
+    font-family: 'Dancing Script', cursive;
+    font-size: 1.5rem;
+    color: #ff69b4;
+    margin-bottom: 0.5rem;
+}
+
+.memory-text {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: #555;
+}
+
+/* Memory Sections */
+.memory-section {
+    max-width: 1200px;
+    margin: 3rem auto;
+    padding: 2rem;
+    position: relative;
+    z-index: 2;
+}
+
+.section-title {
+    font-family: 'Dancing Script', cursive;
+    font-size: 2.5rem;
+    color: #ff69b4;
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.memory-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-bottom: 2rem;
+}
+
+.section-message {
+    background: rgba(255, 255, 255, 0.9);
+    padding: 2rem;
+    border-radius: 15px;
+    text-align: center;
+    font-size: 1.2rem;
+    line-height: 1.8;
+    color: #555;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Final Message Section */
+.final-message {
+    max-width: 900px;
+    margin: 4rem auto;
+    padding: 3rem 2rem;
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 30px;
+    box-shadow: 0 15px 50px rgba(255, 105, 180, 0.3);
+    text-align: center;
+    position: relative;
+    z-index: 2;
+}
+
+.heart-icon {
+    font-size: 4rem;
+    animation: heartbeat 2s infinite;
+}
+
+@keyframes heartbeat {
+    0%, 100% { transform: scale(1); }
+    25% { transform: scale(1.1); }
+    50% { transform: scale(1); }
+    75% { transform: scale(1.1); }
+}
+
+.final-title {
+    font-family: 'Dancing Script', cursive;
+    font-size: 3rem;
+    color: #ff69b4;
+    margin: 1rem 0 2rem 0;
+}
+
+.final-content {
+    text-align: left;
+    font-size: 1.1rem;
+    line-height: 2;
+    color: #555;
+}
+
+.final-content p {
+    margin-bottom: 1.5rem;
+}
+
+.emphasis {
+    font-weight: 600;
+    color: #ff69b4;
+    font-size: 1.3rem;
+    text-align: center;
+}
+
+.birthday-wish {
+    font-family: 'Dancing Script', cursive;
+    font-size: 2rem;
+    color: #ff69b4;
+    text-align: center;
+    margin: 2rem 0;
+}
+
+.signature {
+    font-style: italic;
+    text-align: center;
+    margin-top: 2rem;
+    color: #ff69b4;
+}
+
+.ps {
+    font-size: 0.95rem;
+    font-style: italic;
+    color: #888;
+    text-align: center;
+    margin-top: 1rem;
+}
+
+.replay-btn {
+    margin-top: 2rem;
+    padding: 1rem 2rem;
+    font-size: 1.1rem;
+    background: linear-gradient(45deg, #9b59b6, #8e44ad);
+    border: none;
+    border-radius: 50px;
+    color: white;
+    cursor: pointer;
+    box-shadow: 0 5px 15px rgba(155, 89, 182, 0.4);
+    transition: all 0.3s ease;
+    font-family: 'Quicksand', sans-serif;
+    font-weight: 600;
+}
+
+.replay-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(155, 89, 182, 0.6);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .main-title {
+        font-size: 2.5rem;
+    }
+
+    .page-title {
+        font-size: 2.5rem;
+    }
+
+    .greeting-line {
+        font-size: 1.1rem;
+    }
+
+    .cta-button {
+        font-size: 1.1rem;
+        padding: 1rem 2rem;
+    }
+
+    .memory-card {
+        padding: 1.5rem;
+        margin: 1.5rem 1rem;
+    }
+
+    .memory-title {
+        font-size: 1.5rem;
+    }
+
+    .memory-text {
+        font-size: 1rem;
+    }
+
+    .section-title {
+        font-size: 2rem;
+    }
+
+    .final-title {
+        font-size: 2rem;
+    }
+
+    .final-content {
+        font-size: 1rem;
+    }
+
+    .memory-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Scroll animations */
+.memory-card,
+.memory-section {
+    opacity: 0;
+    animation: slideUp 0.8s ease forwards;
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.memory-card:nth-child(1) { animation-delay: 0.2s; }
+.memory-card:nth-child(2) { animation-delay: 0.4s; }
+.memory-card:nth-child(3) { animation-delay: 0.6s; }
+.memory-section:nth-child(odd) { animation-delay: 0.3s; }
+.memory-section:nth-child(even) { animation-delay: 0.5s; }

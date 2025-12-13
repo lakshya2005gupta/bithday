@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday Ishaani 💖</title>
+    <link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+    <audio id="bgm-main" loop>
+        <source src="public/audio/bgm-main.mp3" type="audio/mpeg">
+    </audio>
+
+    <div class="custom-cursor">
+        <svg viewBox="0 0 24 24" width="30" height="30">
+            <path fill="url(#heartGradient)" d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+            <defs>
+                <linearGradient id="heartGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" style="stop-color:#ff69b4;stop-opacity:1" />
+                    <stop offset="100%" style="stop-color:#9b59b6;stop-opacity:1" />
+                </linearGradient>
+            </defs>
+        </svg>
+    </div>
+    
+    <div class="floating-hearts"></div>
+    
+    <div class="container">
+        <h1 class="main-title">Happy Birthday Ishaani! 🎉</h1>
+        
+        <div id="interactive-content">
+            <div class="greeting-card" id="card-1">
+                <div class="card-content">
+                    <h2 class="card-title">Hey Beautiful Soul! ✨</h2>
+                    <img src="public/images/gifs/gif1.gif" alt="Celebration" class="card-gif">
+                    <p class="card-text">You light up every room you walk into with that beautiful smile!</p>
+                </div>
+            </div>
+
+            <div class="greeting-card hidden" id="card-2">
+                <div class="card-content">
+                    <h2 class="card-title">You Know What? 💝</h2>
+                    <img src="public/images/gifs/gif2.gif" alt="Heart" class="card-gif">
+                    <p class="card-text">Every moment with you feels like a celebration of life itself!</p>
+                </div>
+            </div>
+
+            <div class="greeting-card hidden" id="card-3">
+                <div class="card-content">
+                    <h2 class="card-title">Today is Special 🌟</h2>
+                    <img src="public/images/gifs/gif3.gif" alt="Sparkle" class="card-gif">
+                    <p class="card-text">Because it's the day the world was blessed with YOU!</p>
+                </div>
+            </div>
+
+            <div class="greeting-card hidden" id="card-4">
+                <div class="card-content">
+                    <h2 class="card-title">I've Prepared Something ✨</h2>
+                    <img src="public/images/gifs/gif4.gif" alt="Magic" class="card-gif">
+                    <p class="card-text">A journey through our beautiful memories together...</p>
+                </div>
+            </div>
+        </div>
+
+        <button class="next-button" id="next-btn">
+            <span class="btn-text">Continue</span> 💫
+        </button>
+
+        <button class="cta-button hidden" id="continue-btn">
+            See Our Memories Together 💕
+        </button>
+    </div>
+
+    <script src="js/main.js"></script>
+    <script>
+        // Auto-play BGM and restore playback position
+        window.addEventListener('load', function() {
+            const audio = document.getElementById('bgm-main');
+            
+            // Restore playback position if coming from previous page
+            const savedTime = sessionStorage.getItem('bgm-time');
+            if (savedTime) {
+                audio.currentTime = parseFloat(savedTime);
+            }
+            
+            // Try to autoplay
+            const playPromise = audio.play();
+            
+            if (playPromise !== undefined) {
+                playPromise.catch(error => {
+                    // Autoplay was prevented, play on first user interaction
+                    document.body.addEventListener('click', function playAudio() {
+                        audio.play();
+                        document.body.removeEventListener('click', playAudio);
+                    }, { once: true });
+                });
+            }
+
+            // Save current time periodically
+            setInterval(() => {
+                sessionStorage.setItem('bgm-time', audio.currentTime);
+            }, 500);
+        });
+
+        // Interactive card progression
+        let currentCard = 1;
+        const totalCards = 4;
+        const nextBtn = document.getElementById('next-btn');
+        const continueBtn = document.getElementById('continue-btn');
+
+        nextBtn.addEventListener('click', function() {
+            if (currentCard < totalCards) {
+                // Hide current card
+                document.getElementById(`card-${currentCard}`).classList.add('hidden');
+                
+                // Show next card
+                currentCard++;
+                document.getElementById(`card-${currentCard}`).classList.remove('hidden');
+                document.getElementById(`card-${currentCard}`).classList.add('fade-in');
+                
+                // Change button text
+                if (currentCard === totalCards) {
+                    nextBtn.querySelector('.btn-text').textContent = 'Ready?';
+                }
+            } else {
+                // All cards shown, show continue button
+                nextBtn.classList.add('hidden');
+                continueBtn.classList.remove('hidden');
+                continueBtn.classList.add('fade-in-scale');
+            }
+        });
+
+        // Smooth navigation with BGM continuation
+        continueBtn.addEventListener('click', function() {
+            // Save BGM time before navigation
+            const audio = document.getElementById('bgm-main');
+            sessionStorage.setItem('bgm-time', audio.currentTime);
+            
+            document.body.style.opacity = '0';
+            setTimeout(function() {
+                window.location.href = 'memories.html';
+            }, 1000);
+        });
+    </script>
+</body>
+</html>

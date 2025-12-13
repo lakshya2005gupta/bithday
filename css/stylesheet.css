@@ -1,0 +1,308 @@
+body {
+	background-color: #000;
+	-webkit-transition:background-color linear 5s;
+	-moz-transition:background-color linear 5s;
+	-o-transition:background-color linear 5s;
+	-ms-transition:background-color linear 5s;
+	transition:background-color linear 5s;
+	overflow-x:hidden;
+}
+.container {
+	display: none;
+}
+.peach {
+	background-color: #FFDAB9;
+}
+.peach-after {
+	-webkit-animation:peach_alive linear 8s infinite;
+	-moz-animation:peach_alive linear 8s infinite;
+	-o-animation:peach_alive linear 8s infinite;
+	-ms-animation:peach_alive linear 8s infinite;
+	animation:peach_alive linear 8s infinite;
+}
+
+@keyframes peach_alive {
+	0%{ background-color: #FFDAB9; }
+	25%{ background-color: #FFE4B5; }
+	50%{ background-color: #FFDAB9; }
+	75%{ background-color: #FFEFD5; }
+	100%{ background-color: #FFDAB9; }
+}
+
+.bulb {
+	width: 50px;
+	height: 50px;
+	margin: auto;
+	background-repeat: no-repeat no-repeat;
+	background-position:center 0px;
+	background-size: 50px 50px;
+}
+
+.bulb-holder {
+	height: 70px;
+}
+
+.bulb-glow-yellow {
+	background-image: url('../public/images/bulb_yellow.png');
+	animation: bulb_glow_yellow linear 5s;
+}
+
+@keyframes bulb_glow_yellow {
+	0%{ background-image: url('../public/images/bulb.png'); opacity: 0; }
+	50%{ opacity: 1; }
+	100%{ background-image: url('../public/images/bulb_yellow.png'); opacity: 1; }
+}
+
+.bulb-glow-red {
+	background-image: url('../public/images/bulb_red.png');
+	animation: bulb_glow_red linear 5s;
+}
+
+@keyframes bulb_glow_red {
+	0%{ background-image: url('../public/images/bulb.png'); opacity: 0; }
+	50%{ opacity: 1; }
+	100%{ background-image: url('../public/images/bulb_red.png'); opacity: 1; }
+}
+
+.bulb-glow-blue {
+	background-image: url('../public/images/bulb_blue.png');
+	animation: bulb_glow_blue linear 5s;
+}
+
+@keyframes bulb_glow_blue {
+	0%{ background-image: url('../public/images/bulb.png'); opacity: 0; }
+	50%{ opacity: 1; }
+	100%{ background-image: url('../public/images/bulb_blue.png'); opacity: 1; }
+}
+
+.bulb-glow-green {
+	background-image: url('../public/images/bulb_green.png');
+	animation: bulb_glow_green linear 5s;
+}
+
+@keyframes bulb_glow_green {
+	0%{ background-image: url('../public/images/bulb.png'); opacity: 0; }
+	50%{ opacity: 1; }
+	100%{ background-image: url('../public/images/bulb_green.png'); opacity: 1; }
+}
+
+.bulb-glow-pink {
+	background-image: url('../public/images/bulb_pink.png');
+	animation: bulb_glow_pink linear 5s;
+}
+
+@keyframes bulb_glow_pink {
+	0%{ background-image: url('../public/images/bulb.png'); opacity: 0; }
+	50%{ opacity: 1; }
+	100%{ background-image: url('../public/images/bulb_pink.png'); opacity: 1; }
+}
+
+.bulb-glow-orange {
+	background-image: url('../public/images/bulb_orange.png');
+	animation: bulb_glow_orange linear 5s;
+}
+
+@keyframes bulb_glow_orange {
+	0%{ background-image: url('../public/images/bulb.png'); opacity: 0; }
+	50%{ opacity: 1; }
+	100%{ background-image: url('../public/images/bulb_orange.png'); opacity: 1; }
+}
+
+/* After music - blinking bulbs */
+.bulb-glow-yellow-after {
+	background-image: url('../public/images/bulb_yellow.png');
+	animation: bulb_glow_yellow_after linear 1s infinite;
+}
+
+@keyframes bulb_glow_yellow_after {
+	0%{ background-image: url('../public/images/bulb.png'); }
+	50%{ background-image: url('../public/images/bulb_yellow.png'); }
+	100%{ background-image: url('../public/images/bulb.png'); }
+}
+
+.bulb-glow-red-after {
+	background-image: url('../public/images/bulb_red.png');
+	animation: bulb_glow_red_after linear 1.2s infinite;
+}
+
+@keyframes bulb_glow_red_after {
+	0%{ background-image: url('../public/images/bulb.png'); }
+	50%{ background-image: url('../public/images/bulb_red.png'); }
+	100%{ background-image: url('../public/images/bulb.png'); }
+}
+
+.bulb-glow-blue-after {
+	background-image: url('../public/images/bulb_blue.png');
+	animation: bulb_glow_blue_after linear 1.4s infinite;
+}
+
+@keyframes bulb_glow_blue_after {
+	0%{ background-image: url('../public/images/bulb.png'); }
+	50%{ background-image: url('../public/images/bulb_blue.png'); }
+	100%{ background-image: url('../public/images/bulb.png'); }
+}
+
+.bulb-glow-green-after {
+	background-image: url('../public/images/bulb_green.png');
+	animation: bulb_glow_green_after linear 1.8s infinite;
+}
+
+@keyframes bulb_glow_green_after {
+	0%{ background-image: url('../public/images/bulb.png'); }
+	50%{ background-image: url('../public/images/bulb_green.png'); }
+	100%{ background-image: url('../public/images/bulb.png'); }
+}
+
+.bulb-glow-pink-after {
+	background-image: url('../public/images/bulb_pink.png');
+	animation: bulb_glow_pink_after linear 2s infinite;
+}
+
+@keyframes bulb_glow_pink_after {
+	0%{ background-image: url('../public/images/bulb.png'); }
+	50%{ background-image: url('../public/images/bulb_pink.png'); }
+	100%{ background-image: url('../public/images/bulb.png'); }
+}
+
+.bulb-glow-orange-after {
+	background-image: url('../public/images/bulb_orange.png');
+	animation: bulb_glow_orange_after linear 2.2s infinite;
+}
+
+@keyframes bulb_glow_orange_after {
+	0%{ background-image: url('../public/images/bulb.png'); }
+	50%{ background-image: url('../public/images/bulb_orange.png'); }
+	100%{ background-image: url('../public/images/bulb.png'); }
+}
+
+audio {
+	display: none;
+}
+
+.bannar {
+	max-width: 100%;
+	transform:translate(0px,-500px);
+}
+
+.bannar-come {
+	animation: bannar_come linear 6s;
+	transform:translate(0px,0px);
+}
+
+@keyframes bannar_come {
+	0%{ transform:translate(0px,-1000px); }
+	33%{ transform:translate(0px,0px) rotate(10deg); }
+	66%{ transform:translate(0px,100px) rotate(-10deg); }
+	100%{ transform:translate(0px,0px); }
+}
+
+.balloons {
+	position: fixed;
+	bottom: -200px;
+	opacity: 0.6;
+	z-index: 99;
+	width: 100px;
+	height: 183px;
+	background-repeat: no-repeat no-repeat;
+	background-size: 100px 183px;
+}
+
+.balloons h2 {
+	text-transform: uppercase;
+	font-family: 'Signika', sans-serif;
+	font-size: 50px;
+	color: #BF4136;
+	text-shadow: 5px 5px 5px #FFF;
+	display: none;
+}
+
+#b1,#b11 { background-image: url('../public/images/b1.png'); }
+#b2,#b22 { background-image: url('../public/images/b2.png'); }
+#b3,#b33 { background-image: url('../public/images/b3.png'); }
+#b4,#b44 { background-image: url('../public/images/b4.png'); }
+#b5,#b55 { background-image: url('../public/images/b5.png'); }
+#b6,#b66 { background-image: url('../public/images/b6.png'); }
+#b7,#b77 { background-image: url('../public/images/b7.png'); }
+
+.balloons-rotate-behaviour-one {
+	animation: balloons_rotate_one linear 10s infinite;
+	transform: rotate(30deg);
+}
+
+@keyframes balloons_rotate_one {
+	0% { transform: rotate(30deg); }
+	50% { transform: rotate(-30deg); }
+	100% { transform: rotate(30deg); }
+}
+
+.balloons-rotate-behaviour-two {
+	animation: balloons_rotate_two linear 10s infinite;
+	transform: rotate(-20deg);
+}
+
+@keyframes balloons_rotate_two {
+	0% { transform: rotate(-20deg); }
+	50% { transform: rotate(20deg); }
+	100% { transform: rotate(-20deg); }
+}
+
+.balloon-border {
+	position: fixed;
+	top:100%;
+	opacity: 0.5;
+	z-index: 9999;
+}
+
+.control-panel {
+	position: fixed;
+	bottom: 0;
+	padding:10px 0px 10px 0px;
+}
+
+#play, #bannar_coming, #balloons_flying, #cake_fadein, #light_candle, #wish_message, #story, #continue_journey {
+	display: none;
+}
+
+.cake-cover {
+	margin-top: 50px;
+}
+
+.message {
+	margin-top: 200px;
+	display: none;
+}
+
+.message p {
+	font-family: 'Signika', sans-serif;
+	font-size: 30px;
+	text-transform: uppercase;
+	color: #C4515C;
+	text-shadow: 2px 2px 2px #FFF;
+	display: none;
+	font-weight: bold;
+}
+
+.btn-primary {
+	border-color: #ff69b4;
+	padding: 10px;
+	text-transform: uppercase;
+	font-family: 'Signika', sans-serif;
+	font-weight: 700;
+	color: #fff;
+	background-color: #ff69b4;
+	margin: 5px;
+}
+
+.btn-primary:hover,
+.btn-primary:focus,
+.btn-primary:active {
+	border-color: #ff1493;
+	color: #fff;
+	background-color: #ff1493;
+}
+
+@media only screen and (max-width: 768px) {
+	.balloons h2 { font-size: 30px; }
+	.message p { font-size: 20px; }
+	.btn-primary { padding: 8px; font-size: 12px; }
+}
