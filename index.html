@@ -13,6 +13,40 @@
 	<link rel="stylesheet" type="text/css" href="css/loading.css">
 	<link href='https://fonts.googleapis.com/css?family=Signika' rel='stylesheet' type='text/css'>
 	<style>
+		/* Critical CSS - Load First */
+		body {
+			background-color: #000;
+			overflow-x: hidden;
+			margin: 0;
+			padding: 0;
+		}
+		.container {
+			display: none;
+		}
+		.loading {
+			position: fixed;
+			z-index: 99999;
+			top: 0;
+			left: 0;
+			right: 0;
+			bottom: 0;
+			background: rgba(0,0,0,0.9);
+		}
+		/* Hide buttons initially */
+		#play, #bannar_coming, #balloons_flying, #cake_fadein, 
+		#light_candle, #wish_message, #story, #continue_journey {
+			display: none !important;
+		}
+		/* Initial balloon positioning */
+		.balloons {
+			position: fixed;
+			bottom: -200px;
+			opacity: 0.6;
+			z-index: 99;
+		}
+		.balloons h2 {
+			display: none;
+		}
 		/* Cake styles */
 		.cake {
 			position: absolute;
@@ -159,7 +193,7 @@
 <body>
 	<div class="loading"></div>
 	<audio class="song" controls loop>
-        <source src="public/audio/bgm-animation.mp3"></source>
+        <source src="/public/audio/bgm-animation.mp3"></source>
 	   Your browser isn't invited for super fun audio time.
     </audio>
     <div class="balloons text-center" id="b1">
@@ -184,7 +218,7 @@
     	<h2 style="color:#20CFB4;">I</h2>
     </div>
 
-    <img src="public/images/Balloon-Border.png" width="100%" class="balloon-border">
+    <img src="/public/images/Balloon-Border.png" width="100%" class="balloon-border">
 
 	<div class="container">
 		<div class="row">
@@ -209,7 +243,7 @@
 		</div>
 		<div class="row">
 			<div class="col-md-12 text-center">
-				<img src="public/images/banner.png" class="bannar">
+				<img src="/public/images/banner.png" class="bannar">
 			</div>
 		</div>
 		<div class="row cake-cover">
@@ -229,13 +263,55 @@
 		</div>
 		<div class="row message">
 			<div class="col-md-12">
-				<p>Some days matter more than others.</p>
-                <p>This one matters because of you.</p>
-                <p>Today is about you — only you.</p>
-                <p>You make every chapter beautiful.</p>
-                <p>You make life warmer, brighter, better.</p>
-                <p>Let’s make today unforgettable.</p>
-                <p>Happy Birthday, Ishaani ❤️✨</p>
+				<p>Today is...</p>
+				<p>as beautiful as other days</p>
+				<p>but you realize</p>
+				<p>another year has gone</p>
+				<p>in a blink of the eyes</p>
+				<p><strong>however</strong></p>
+				<p>Do you know..?</p>
+				<p>today is just special</p>
+				<p>so special to you</p>
+				<p>that's why</p>
+				<p>Let's make it...</p>
+				<p>the best celebration ever</p>
+				<p>and let me share...</p>
+				<p>a piece of happiness to you</p>
+				<p>I made all this...</p>
+				<p>as a birthday present to you</p>
+				<p>thanks for being there</p>
+				<p>thanks for the friendship we made</p>
+				<p>thanks for everything</p>
+				<p>I wish you all the best</p>
+				<p>May your life be at ease</p>
+				<p>May all your wishes come true</p>
+				<p>Remember</p>
+				<p>your ambitions</p>
+				<p>you live as a free spirit...</p>
+				<p>soaring in the sky</p>
+				<p>Now things are different...</p>
+				<p>real story of your life</p>
+				<p>is just about to begin</p>
+				<p>indeed..</p>
+				<p>this life is not easy as we thought</p>
+				<p>but...</p>
+				<p>don't worry</p>
+				<p>don't be afraid</p>
+				<p>because...</p>
+				<p>you are not alone in this world</p>
+				<p>because...</p>
+				<p>this year will be better</p>
+				<p>and I hope</p>
+				<p>you'll find...</p>
+				<p>happiness along the way</p>
+				<p>keep your spirits up</p>
+				<p>enjoy every single moment...</p>
+				<p>that you experience today</p>
+				<p>fill it with your most beautiful smile</p>
+				<p>and make it the best memory..</p>
+				<p>lastly...</p>
+				<p>I'd like to wish you one more time</p>
+				<p>a very happy birthday Ishaani</p>
 			</div>
 		</div>
 		<div class="navbar navbar-fixed-bottom">
