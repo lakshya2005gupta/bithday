@@ -193,7 +193,7 @@
 <body>
 	<div class="loading"></div>
 	<audio class="song" controls loop>
-        <source src="/public/audio/bgm-animation.mp3"></source>
+        <source src="public/audio/bgm-animation.mp3"></source>
 	   Your browser isn't invited for super fun audio time.
     </audio>
     <div class="balloons text-center" id="b1">
@@ -218,7 +218,7 @@
     	<h2 style="color:#20CFB4;">I</h2>
     </div>
 
-    <img src="/public/images/Balloon-Border.png" width="100%" class="balloon-border">
+    <img src="public/images/Balloon-Border.png" width="100%" class="balloon-border">
 
 	<div class="container">
 		<div class="row">
@@ -243,7 +243,7 @@
 		</div>
 		<div class="row">
 			<div class="col-md-12 text-center">
-				<img src="/public/images/banner.png" class="bannar">
+				<img src="public/images/banner.png" class="bannar">
 			</div>
 		</div>
 		<div class="row cake-cover">
@@ -316,23 +316,248 @@
 		</div>
 		<div class="navbar navbar-fixed-bottom">
 			<div class="row">
-				<div class="col-md-6 text-center col-md-offset-3">
-					<button class="btn btn-primary" id="turn_on">Turn On Lights</button>
-					<button class="btn btn-primary" id="play">Play Music</button>
-					<button class="btn btn-primary" id="bannar_coming">Let's Decorate</button>
-					<button class="btn btn-primary" id="balloons_flying">Fly With Balloons</button>
-					<button class="btn btn-primary" id="cake_fadein">Most Delicious Cake Ever</button>
-					<button class="btn btn-primary" id="light_candle">Light Candle</button>
-					<button class="btn btn-primary" id="wish_message">Happy Birthday</button>
-					<button class="btn btn-primary" id="story">A Message for You</button>
-					<button class="btn btn-primary" id="continue_journey">Continue to Your Special Day 💝</button>
+				<div class="col-md-12 text-center" style="background: rgba(255,255,255,0.95); padding: 20px;">
+					<button class="btn btn-primary" id="turn_on" style="display: inline-block;">Turn On Lights</button>
+					<button class="btn btn-primary" id="play" style="display: none !important;">Play Music</button>
+					<button class="btn btn-primary" id="bannar_coming" style="display: none !important;">Let's Decorate</button>
+					<button class="btn btn-primary" id="balloons_flying" style="display: none !important;">Fly With Balloons</button>
+					<button class="btn btn-primary" id="cake_fadein" style="display: none !important;">Most Delicious Cake Ever</button>
+					<button class="btn btn-primary" id="light_candle" style="display: none !important;">Light Candle</button>
+					<button class="btn btn-primary" id="wish_message" style="display: none !important;">Happy Birthday</button>
+					<button class="btn btn-primary" id="story" style="display: none !important;">A Message for You</button>
+					<button class="btn btn-primary" id="continue_journey" style="display: none !important;">Continue to Your Special Day 💝</button>
 				</div>
 			</div>
 		</div>
 	</div>
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+<script src="https://code.jquery.com/jquery-1.11.2.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
-<script src="js/effect.js"></script>
+<script>
+// Inline critical JavaScript to ensure buttons work
+$(window).load(function(){
+	$('.loading').fadeOut('fast');
+	$('.container').fadeIn('fast');
+});
+
+$(document).ready(function(){
+	var vw;
+	$(window).resize(function(){
+		vw = $(window).width()/2;
+		$('#b1,#b2,#b3,#b4,#b5,#b6,#b7').stop();
+		$('#b11').animate({top:240, left: vw-350},500);
+		$('#b22').animate({top:240, left: vw-250},500);
+		$('#b33').animate({top:240, left: vw-150},500);
+		$('#b44').animate({top:240, left: vw-50},500);
+		$('#b55').animate({top:240, left: vw+50},500);
+		$('#b66').animate({top:240, left: vw+150},500);
+		$('#b77').animate({top:240, left: vw+250},500);
+	});
+
+	$('#turn_on').click(function(){
+		console.log('Turn on lights clicked');
+		$('#bulb_yellow').addClass('bulb-glow-yellow');
+		$('#bulb_red').addClass('bulb-glow-red');
+		$('#bulb_blue').addClass('bulb-glow-blue');
+		$('#bulb_green').addClass('bulb-glow-green');
+		$('#bulb_pink').addClass('bulb-glow-pink');
+		$('#bulb_orange').addClass('bulb-glow-orange');
+		$('body').addClass('peach');
+		$(this).hide();
+		setTimeout(function(){
+			console.log('Showing play button');
+			$('#play').attr('style', 'display: inline-block !important; opacity: 0;').animate({opacity: 1}, 600);
+		}, 1000);
+	});
+
+	$('#play').click(function(){
+		console.log('Play music clicked');
+		var audio = $('.song')[0];
+		audio.play();
+		$('#bulb_yellow').addClass('bulb-glow-yellow-after');
+		$('#bulb_red').addClass('bulb-glow-red-after');
+		$('#bulb_blue').addClass('bulb-glow-blue-after');
+		$('#bulb_green').addClass('bulb-glow-green-after');
+		$('#bulb_pink').addClass('bulb-glow-pink-after');
+		$('#bulb_orange').addClass('bulb-glow-orange-after');
+		$('body').css('background-color','#FFF');
+		$('body').addClass('peach-after');
+		$(this).hide();
+		setTimeout(function(){
+			$('#bannar_coming').attr('style', 'display: inline-block !important; opacity: 0;').animate({opacity: 1}, 600);
+		}, 1000);
+	});
+
+	$('#bannar_coming').click(function(){
+		console.log('Banner coming clicked');
+		$('.bannar').addClass('bannar-come');
+		$(this).hide();
+		setTimeout(function(){
+			$('#balloons_flying').attr('style', 'display: inline-block !important; opacity: 0;').animate({opacity: 1}, 600);
+		}, 1000);
+	});
+
+	function loopOne() {
+		var randleft = 1000*Math.random();
+		var randtop = 500*Math.random();
+		$('#b1').animate({left:randleft,bottom:randtop},10000,function(){
+			loopOne();
+		});
+	}
+	function loopTwo() {
+		var randleft = 1000*Math.random();
+		var randtop = 500*Math.random();
+		$('#b2').animate({left:randleft,bottom:randtop},10000,function(){
+			loopTwo();
+		});
+	}
+	function loopThree() {
+		var randleft = 1000*Math.random();
+		var randtop = 500*Math.random();
+		$('#b3').animate({left:randleft,bottom:randtop},10000,function(){
+			loopThree();
+		});
+	}
+	function loopFour() {
+		var randleft = 1000*Math.random();
+		var randtop = 500*Math.random();
+		$('#b4').animate({left:randleft,bottom:randtop},10000,function(){
+			loopFour();
+		});
+	}
+	function loopFive() {
+		var randleft = 1000*Math.random();
+		var randtop = 500*Math.random();
+		$('#b5').animate({left:randleft,bottom:randtop},10000,function(){
+			loopFive();
+		});
+	}
+	function loopSix() {
+		var randleft = 1000*Math.random();
+		var randtop = 500*Math.random();
+		$('#b6').animate({left:randleft,bottom:randtop},10000,function(){
+			loopSix();
+		});
+	}
+	function loopSeven() {
+		var randleft = 1000*Math.random();
+		var randtop = 500*Math.random();
+		$('#b7').animate({left:randleft,bottom:randtop},10000,function(){
+			loopSeven();
+		});
+	}
+
+	$('#balloons_flying').click(function(){
+		console.log('Balloons flying clicked');
+		$('.balloon-border').animate({top:-500},8000);
+		$('#b1,#b4,#b5,#b7').addClass('balloons-rotate-behaviour-one');
+		$('#b2,#b3,#b6').addClass('balloons-rotate-behaviour-two');
+		loopOne();
+		loopTwo();
+		loopThree();
+		loopFour();
+		loopFive();
+		loopSix();
+		loopSeven();
+		$(this).hide();
+		setTimeout(function(){
+			$('#cake_fadein').attr('style', 'display: inline-block !important; opacity: 0;').animate({opacity: 1}, 600);
+		}, 1000);
+	});	
+
+	$('#cake_fadein').click(function(){
+		console.log('Cake fadein clicked');
+		$('.cake').fadeIn('slow');
+		$(this).hide();
+		setTimeout(function(){
+			$('#light_candle').attr('style', 'display: inline-block !important; opacity: 0;').animate({opacity: 1}, 600);
+		}, 800);
+	});
+
+	$('#light_candle').click(function(){
+		console.log('Light candle clicked');
+		$('.fuego').fadeIn('slow');
+		$(this).hide();
+		setTimeout(function(){
+			$('#wish_message').attr('style', 'display: inline-block !important; opacity: 0;').animate({opacity: 1}, 600);
+		}, 500);
+	});
+
+	$('#wish_message').click(function(){
+		console.log('Wish message clicked');
+		vw = $(window).width()/2;
+
+		$('#b1,#b2,#b3,#b4,#b5,#b6,#b7').stop();
+		$('#b1').attr('id','b11');
+		$('#b2').attr('id','b22');
+		$('#b3').attr('id','b33');
+		$('#b4').attr('id','b44');
+		$('#b5').attr('id','b55');
+		$('#b6').attr('id','b66');
+		$('#b7').attr('id','b77');
+		$('#b11').animate({top:240, left: vw-350},500);
+		$('#b22').animate({top:240, left: vw-250},500);
+		$('#b33').animate({top:240, left: vw-150},500);
+		$('#b44').animate({top:240, left: vw-50},500);
+		$('#b55').animate({top:240, left: vw+50},500);
+		$('#b66').animate({top:240, left: vw+150},500);
+		$('#b77').animate({top:240, left: vw+250},500);
+		$('.balloons').css('opacity','0.9');
+		$('.balloons h2').fadeIn(3000);
+		$(this).hide();
+		setTimeout(function(){
+			$('#story').attr('style', 'display: inline-block !important; opacity: 0;').animate({opacity: 1}, 600);
+		}, 800);
+	});
+	
+	$('#story').click(function(){
+		console.log('Story clicked');
+		$(this).hide();
+		$('.cake').fadeOut('fast').promise().done(function(){
+			$('.message').fadeIn('slow');
+		});
+		
+		var i;
+
+		function msgLoop (i) {
+			$(".message p:nth-child("+i+")").fadeOut('slow').delay(800).promise().done(function(){
+				i=i+1;
+				$(".message p:nth-child("+i+")").fadeIn('slow').delay(1000);
+				if(i==8){
+					$(".message p:nth-child("+i+")").fadeOut('slow').promise().done(function () {
+						$('.cake').fadeIn('fast');
+						$('#continue_journey').attr('style', 'display: inline-block !important; opacity: 0;').animate({opacity: 1}, 600);
+					});
+				}
+				else{
+					msgLoop(i);
+				}			
+			});
+		}
+		
+		msgLoop(0);
+	});
+
+	// Continue to main page with fade out music
+	$('#continue_journey').click(function(){
+		console.log('Continue journey clicked');
+		var audio = $('.song')[0];
+		// Fade out audio
+		var fadeAudio = setInterval(function () {
+			if (audio.volume > 0.1) {
+				audio.volume -= 0.1;
+			} else {
+				clearInterval(fadeAudio);
+				audio.pause();
+			}
+		}, 200);
+
+		// Fade out page and navigate
+		$('body').fadeOut(2000, function(){
+			window.location.href = 'main.html';
+		});
+	});
+});
+</script>
 </body>
 </html>
