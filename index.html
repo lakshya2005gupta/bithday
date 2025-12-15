@@ -263,60 +263,18 @@
 		</div>
 		<div class="row message">
 			<div class="col-md-12">
-				<p>Today is...</p>
-				<p>as beautiful as other days</p>
-				<p>but you realize</p>
-				<p>another year has gone</p>
-				<p>in a blink of the eyes</p>
-				<p><strong>however</strong></p>
-				<p>Do you know..?</p>
-				<p>today is just special</p>
-				<p>so special to you</p>
-				<p>that's why</p>
-				<p>Let's make it...</p>
-				<p>the best celebration ever</p>
-				<p>and let me share...</p>
-				<p>a piece of happiness to you</p>
-				<p>I made all this...</p>
-				<p>as a birthday present to you</p>
-				<p>thanks for being there</p>
-				<p>thanks for the friendship we made</p>
-				<p>thanks for everything</p>
-				<p>I wish you all the best</p>
-				<p>May your life be at ease</p>
-				<p>May all your wishes come true</p>
-				<p>Remember</p>
-				<p>your ambitions</p>
-				<p>you live as a free spirit...</p>
-				<p>soaring in the sky</p>
-				<p>Now things are different...</p>
-				<p>real story of your life</p>
-				<p>is just about to begin</p>
-				<p>indeed..</p>
-				<p>this life is not easy as we thought</p>
-				<p>but...</p>
-				<p>don't worry</p>
-				<p>don't be afraid</p>
-				<p>because...</p>
-				<p>you are not alone in this world</p>
-				<p>because...</p>
-				<p>this year will be better</p>
-				<p>and I hope</p>
-				<p>you'll find...</p>
-				<p>happiness along the way</p>
-				<p>keep your spirits up</p>
-				<p>enjoy every single moment...</p>
-				<p>that you experience today</p>
-				<p>fill it with your most beautiful smile</p>
-				<p>and make it the best memory..</p>
-				<p>lastly...</p>
-				<p>I'd like to wish you one more time</p>
-				<p>a very happy birthday Ishaani</p>
+				<p>Some days matter more than others</p>
+                <p>This one matters because of you</p>
+                <p>Today is about you, only you</p>
+                <p>You make every chapter beautiful</p>
+                <p>You make life warmer, brighter, better</p>
+                <p>Let’s make today unforgettable</p>
+                <p>Happy Birthday, Ishaani ❤️✨</p>
 			</div>
 		</div>
 		<div class="navbar navbar-fixed-bottom">
 			<div class="row">
-				<div class="col-md-12 text-center" style="background: rgba(255,255,255,0.95); padding: 20px;">
+				<div class="col-md-12 text-center">
 					<button class="btn btn-primary" id="turn_on" style="display: inline-block;">Turn On Lights</button>
 					<button class="btn btn-primary" id="play" style="display: none !important;">Play Music</button>
 					<button class="btn btn-primary" id="bannar_coming" style="display: none !important;">Let's Decorate</button>
@@ -367,7 +325,7 @@ $(document).ready(function(){
 		setTimeout(function(){
 			console.log('Showing play button');
 			$('#play').attr('style', 'display: inline-block !important; opacity: 0;').animate({opacity: 1}, 600);
-		}, 1000);
+		}, 5000); // Wait 5 seconds for lights animation
 	});
 
 	$('#play').click(function(){
@@ -385,7 +343,7 @@ $(document).ready(function(){
 		$(this).hide();
 		setTimeout(function(){
 			$('#bannar_coming').attr('style', 'display: inline-block !important; opacity: 0;').animate({opacity: 1}, 600);
-		}, 1000);
+		}, 3000); // Wait 3 seconds for music to start
 	});
 
 	$('#bannar_coming').click(function(){
@@ -394,7 +352,7 @@ $(document).ready(function(){
 		$(this).hide();
 		setTimeout(function(){
 			$('#balloons_flying').attr('style', 'display: inline-block !important; opacity: 0;').animate({opacity: 1}, 600);
-		}, 1000);
+		}, 6000); // Wait 6 seconds for banner animation
 	});
 
 	function loopOne() {
@@ -462,7 +420,7 @@ $(document).ready(function(){
 		$(this).hide();
 		setTimeout(function(){
 			$('#cake_fadein').attr('style', 'display: inline-block !important; opacity: 0;').animate({opacity: 1}, 600);
-		}, 1000);
+		}, 5000); // Wait 5 seconds for balloons to fly
 	});	
 
 	$('#cake_fadein').click(function(){
@@ -471,7 +429,7 @@ $(document).ready(function(){
 		$(this).hide();
 		setTimeout(function(){
 			$('#light_candle').attr('style', 'display: inline-block !important; opacity: 0;').animate({opacity: 1}, 600);
-		}, 800);
+		}, 3000); // Wait 3 seconds for cake to appear
 	});
 
 	$('#light_candle').click(function(){
@@ -480,7 +438,7 @@ $(document).ready(function(){
 		$(this).hide();
 		setTimeout(function(){
 			$('#wish_message').attr('style', 'display: inline-block !important; opacity: 0;').animate({opacity: 1}, 600);
-		}, 500);
+		}, 2000); // Wait 2 seconds for candle to light
 	});
 
 	$('#wish_message').click(function(){
@@ -507,7 +465,7 @@ $(document).ready(function(){
 		$(this).hide();
 		setTimeout(function(){
 			$('#story').attr('style', 'display: inline-block !important; opacity: 0;').animate({opacity: 1}, 600);
-		}, 800);
+		}, 3000); // Wait 3 seconds for ISHAANI letters to appear
 	});
 	
 	$('#story').click(function(){
@@ -523,10 +481,12 @@ $(document).ready(function(){
 			$(".message p:nth-child("+i+")").fadeOut('slow').delay(800).promise().done(function(){
 				i=i+1;
 				$(".message p:nth-child("+i+")").fadeIn('slow').delay(1000);
-				if(i==8){
+				if(i==7){ // 7 messages
 					$(".message p:nth-child("+i+")").fadeOut('slow').promise().done(function () {
 						$('.cake').fadeIn('fast');
-						$('#continue_journey').attr('style', 'display: inline-block !important; opacity: 0;').animate({opacity: 1}, 600);
+						setTimeout(function(){
+							$('#continue_journey').attr('style', 'display: inline-block !important; opacity: 0;').animate({opacity: 1}, 600);
+						}, 1000);
 					});
 				}
 				else{
